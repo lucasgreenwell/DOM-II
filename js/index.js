@@ -47,5 +47,19 @@ const destinations = document.querySelectorAll(".destination");
 
 
 
+for (let i = 0; i < textContent.length; i ++){
+    let img = imgContent[i];
+    let textArea = textContent[i];
+    textArea.addEventListener("mousedown", () => {
+        textArea.style.width = "100%";
+        img.style.alignSelf = "center";
+    })
+    textArea.addEventListener("mouseup", () => {
+        textArea.style.width = "48%";
+        
+    })
+}
+
+
 
 
