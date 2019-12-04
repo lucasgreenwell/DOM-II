@@ -14,6 +14,9 @@ for (let i = 0; i < navLinks.length; i ++){
         link.style.color = "black";
         link.style.fontSize = "1.6rem";
     })
+    link.addEventListener("click", (e) => {
+        e.preventDefault();
+    })
 }
 
 //nodelist of three buttons
@@ -32,33 +35,57 @@ for (let i = 0; i < buttons.length; i ++){
     })
 }
 
+//nodelist of two text areas
 const textContent = document.querySelectorAll(".text-content");
-// console.log(textContent);
-//nodelist of two textareas
 
-const imgContent = document.querySelectorAll(".img-content");
-// console.log(imgContent);
+//changes textsize while being clicked on
+for (let i = 0; i < textContent.length; i ++){
+    let textArea = textContent[i];
+    textArea.addEventListener("mousedown", () => {
+        textArea.style.width = "100%";
+    })
+    textArea.addEventListener("mouseup", () => {
+        textArea.style.width = "48%";
+    })
+}
+
+
 //nodelist of two images
+const imgContent = document.querySelectorAll(".img-content");
+
+//rotates the images a bit while a key is pressed
+document.addEventListener("keydown", function (){
+    for (let i = 0; i < imgContent.length; i ++){
+        let img = imgContent[i];
+        img.style.transform = "rotate(45deg)"   
+    }
+})
+document.addEventListener("keyup", function (){
+    for (let i = 0; i < imgContent.length; i ++){
+        let img = imgContent[i];
+        img.style.transform = "rotate(0deg)"   
+    }
+})
+
 
 const destinations = document.querySelectorAll(".destination");
 // console.log(destinations);
 //nodelist of three destination cards
 
+document.addEventListener("keydown", () => {
+    for (let i = 0 ; i < destinations.length; i ++){
+        let destination = destinations[i];
+        destination.style.display = "flex";
+    }
+})
+document.addEventListener("scroll", () => {
+    for (let i = 0 ; i < destinations.length; i ++){
+        let destination = destinations[i];
+        destination.style.display = "relative";
+    }
+})
 
 
-
-for (let i = 0; i < textContent.length; i ++){
-    let img = imgContent[i];
-    let textArea = textContent[i];
-    textArea.addEventListener("mousedown", () => {
-        textArea.style.width = "100%";
-        img.style.alignSelf = "center";
-    })
-    textArea.addEventListener("mouseup", () => {
-        textArea.style.width = "48%";
-        
-    })
-}
 
 
 
